@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+    Document   : shopcontent
+    Created on : Jan 3, 2016, 5:20:12 PM
+    Author     : Kostiantyn Kovalchuk
+    Comment    : List of all goods in the shop
+-->
+
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" 
+          xmlns:c = "http://java.sun.com/jsp/jstl/core" 
+          version="2.0">
+
+
+    <jsp:directive.page contentType="text/html" pageEncoding="UTF-8"/>
+ 
+    <jsp:element name="shopcontentpage"> 
+        <jsp:include page = "/jspf/header.jspf" />
+        <jsp:body>
+            <html>
+              <body>
+                <table border="1">
+                  <caption>List of available goods</caption>
+                  <tr>
+                    <th>Good</th>
+                    <th>Price</th>
+                    <th>Description</th>
+                    <th>Action</th>  
+                  </tr>
+                  <c:forEach items = "${requestScope.content.goods}" var = "good">
+                      <tr>
+                        <td>${good.name}</td>
+                        <td>${good.price}</td>
+                        <td>${good.description}</td>
+                        <td>
+                          <form name = "adtocart" action= "addtocart" method = "POST">
+                            <input type = "hidden" name = "goodid" value = "${good.id}" />
+                            <input type = "hidden"  name = "goodcount" value = "1" />
+                            <input type = "submit" value = "Add to cart!"/>
+                          </form>
+                        </td>
+                      </tr>
+                  </c:forEach>
+                  <td colspan = "4">Your shopping cart:</td>
+                  <tr>
+                    <th>Good</th>
+                    <th>Price</th>
+                    <th>Number of items</th>
+                    <th>Action</th>  
+                  </tr>
+                  <c:forEach items = "${sessionScope.sessionInfo.bill.items}" var = "item">
+                      <tr>
+                        <td>${item.goodName}</td>
+                        <td>${item.goodPrice}</td>
+                        <td>${item.goodCount}</td>
+                        <td>
+                          <form name = "removefromcart" action= "removefromcart" method = "POST">
+                            <input type = "hidden" name = "goodid" value = "${item.goodId}" />
+                            <input type = "submit" value = "Remove from cart"/>
+                          </form>
+                        </td>
+                      </tr>
+                  </c:forEach>
+                  <tr>
+                    <td colspan = "3">Total:</td> 
+                    <td>${sessionScope.sessionInfo.bill.totalPrice}</td>
+                  </tr>
+                </table>
+                <br />
+                <form name = "submitform" action= "submitorder" method = "POST">
+                  <input type = "submit" value = "Submit!"/>
+                </form>
+              </body>
+            </html>
+        </jsp:body>
+        <jsp:include page = "/jspf/footer.jspf" />
+    </jsp:element>
+
+</jsp:root>

@@ -1,0 +1,17 @@
+<!-- Header of the user's page: -->
+<jsp:directive.page pageEncoding="UTF-8"/>
+<jsp:element name="header">
+    <jsp:body>
+        <table>
+          <tr>
+            <td><a href = "login.jspx">Log in</a></td>
+            <td><a href = "index.jspx" >Home</a></td>
+            <td>
+              <form name="LogoutForm" method="GET" action="logout">
+                <input type = "submit" value = "Logout" />
+              </form>
+            </td>
+          </tr>
+        </table>
+    </jsp:body>
+</jsp:element>

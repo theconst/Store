@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+    Document   : confirmation.jsp
+    Created on : Jan 3, 2016, 5:22:10 PM
+    Author     : Kostiantyn Kovalchuk
+    Comment    : Page for confirmation of the order
+-->
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
+          xmlns:c = "http://java.sun.com/jsp/jstl/core" 
+          version="2.0">
+
+    <jsp:directive.page contentType="text/html" pageEncoding="UTF-8"/>
+
+    <jsp:element name="confirmation">
+        <jsp:body>
+            <html>
+              <body>
+                <jsp:include page= "/jspf/header.jspf" />
+                <table border="1">
+                  <caption>
+                    <h1>You have done the order, ${sessionScope.sessionInfo.user.login}</h1>
+                    <h2>Order number:  ${sessionScope.sessionInfo.order.number}</h2>
+                  </caption>
+                  <tr>
+                    <th>Name</th>
+                    <th>Amount</th>
+                    <th>Price per item</th>
+                  </tr>
+                  <c:forEach items = "${sessionScope.sessionInfo.bill.items}" var = "item">
+                      <tr>
+                        <td>${item.goodName}</td>
+                        <td>${item.goodCount}</td>
+                        <td>${item.goodPrice}</td>
+                      </tr>
+                  </c:forEach>
+                </table>
+                Total: ${sessionScope.sessionInfo.bill.totalPrice} <br />
+                <a href = "index.jspx">Home</a>
+              </body>
+            </html>
+        </jsp:body>
+        <jsp:include page= "/jspf/footer.jspf" />
+    </jsp:element>
+
+</jsp:root>

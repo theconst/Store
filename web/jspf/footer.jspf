@@ -1,0 +1,11 @@
+<!-- Footer of the pages -->
+<jsp:directive.page pageEncoding="UTF-8"/>
+<jsp:element name="footer">
+    <jsp:body>
+        <html>
+          <body>
+            <p>The poor company 2016</p>
+          </body>   
+        </html>
+    </jsp:body>
+</jsp:element>

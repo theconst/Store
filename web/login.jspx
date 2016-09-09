@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+    Document   : login
+    Created on : Jan 3, 2016, 5:19:54 PM
+    Author     : Kostiantyn Kovalchuk
+    Comment    : Login page
+-->
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+
+    <jsp:directive.page contentType="text/html" pageEncoding="UTF-8"/>
+
+    <jsp:element name="loginpage">
+        <jsp:body>
+            <html>
+              <body>
+                <jsp:include page = "/jspf/header.jspf" />
+                <form name = "loginform" action= "login" method = "POST">
+                  Login: <input type = "text" name = "login" /> <br />
+                  Password: <input type = "password" name = "password" /> <br />
+                  <input type = "submit" value = "Log in"/> <br />
+                </form>
+                ${errorMessage}
+                <jsp:include page = "/jspf/footer.jspf" />
+              </body>
+            </html>
+        </jsp:body>
+    </jsp:element>
+
+</jsp:root>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+    Document   : customerlist
+    Created on : Jan 3, 2016, 5:24:28 PM
+    Author     : Kostiantyn Kovalchuk
+    Comment    : List of all the customers
+-->
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" 
+          xmlns:c = "http://java.sun.com/jsp/jstl/core" 
+          version="2.0">
+
+    <jsp:directive.page contentType="text/html" pageEncoding="UTF-8"/>
+
+    <jsp:element name="text">
+        <jsp:body>
+            <html>
+              <body>
+                <jsp:include page= "/jspf/adminheader.jspf" />
+                <table border="1">
+                  <caption>List of customers</caption>
+                  <tr>
+                    <th>Customer id</th>
+                    <th>Customer name</th>
+                    <th>Address</th>
+                    <th>Action</th>
+                  </tr>
+                  <c:forEach items="${requestScope.content.customers}" var="item">
+                      <tr>
+                        <td><c:out value="${item.id}" /></td>
+                        <td><c:out value ="${item.name}" /></td>
+                        <td><c:out value = "${item.address}" /></td>
+                        <td>
+                          <form name = "blacklistform" action= "addtoblacklist" method = "POST">
+                            <input type = "hidden" name  = "blacklisteduser" value = "${item.id}" />
+                            <input type = "submit" value = "Add to blacklist!"/><br />
+                          </form>
+                        </td>
+                      </tr>
+                  </c:forEach>
+                </table>
+
+                <jsp:include page= "/jspf/footer.jspf" />
+              </body>
+            </html>
+        </jsp:body>
+    </jsp:element>
+
+</jsp:root>

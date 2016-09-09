@@ -1,0 +1,21 @@
+<!-- Common content of the administrator's page -->
+<jsp:directive.page pageEncoding="UTF-8"/>
+
+<jsp:element name="adminherader">
+    <jsp:body>
+        <html>
+          <body>
+            <table>
+              <tr>
+                <td><a href = "adminpanel.jspx"  >Back to panel</a> </td>
+                <td> 
+                  <form name="LogoutForm" method="POST" action="logout">
+                    <input type = "submit" value = "Log out" />
+                  </form>
+                </td>
+              </tr>
+            </table>
+          </body>
+        </html>
+    </jsp:body>
+</jsp:element>

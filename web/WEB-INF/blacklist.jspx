@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+    Document   : blacklist
+    Created on : Jan 3, 2016, 5:22:59 PM
+    Author     : Kostiantyn Kovalchuk
+    Comment    : Page where the blacklist is shown
+-->
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" 
+          xmlns:c = "http://java.sun.com/jsp/jstl/core" 
+          version="2.0">
+
+    <jsp:directive.page contentType="text/html" pageEncoding="UTF-8"/>
+
+    <jsp:element name="blacklist">
+        <jsp:body>
+            <html>
+              <body>
+                <jsp:include page= "/jspf/adminheader.jspf" />
+                <table border="1">
+                  <caption>Blacklisted customer</caption>
+                  <tr>
+                    <th>Customer id</th>
+                    <th>Reason</th>
+                    <th>Action</th>
+                  </tr>
+                  <c:forEach items="${requestScope.content.blacklist}" var="item">
+                      <tr>
+                        <td><c:out value="${item.id}" /></td>
+                        <td><c:out value = "${item.name}" /></td>
+                        <td>
+                          <form name = "unblacklistform" action= "removefromblacklist" method = "POST">
+                            <input type = "hidden" name  = "blacklisteduser" value = "${item.id}" />
+                            <input type = "submit" value = "Remove from blacklist!"/><br />
+                          </form>
+                        </td>
+                      </tr>
+                  </c:forEach>
+                </table>
+                <jsp:include page = "/jspf/footer.jspf" />
+              </body>
+            </html>
+        </jsp:body>
+    </jsp:element>
+
+</jsp:root>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+    Document   : index
+    Created on : Jan 4, 2016, 12:06:12 PM
+    Author     : Kostiantyn Kovalchuk
+    Comment    : Main page of the application
+-->
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" 
+          xmlns:c = "http://java.sun.com/jsp/jstl/core"
+          version="2.0">
+
+    <jsp:directive.page contentType="text/html" pageEncoding="UTF-8"/>
+
+    <jsp:element name="index">
+
+        <jsp:body>
+            <html>
+              <jsp:include page = "jspf/header.jspf" />
+              <h1>Welcome, <c:out default = "Guest" value = "${sessionScope.sessionInfo.user.login}" /></h1>
+              <form name = "shopform" action= "viewshopcontent" method = "GET">
+                <input type = "submit" value = "Start shopping!" /> <br />
+              </form>
+              <jsp:include page = "jspf/footer.jspf" />
+            </html> 
+        </jsp:body>
+
+    </jsp:element>
+
+</jsp:root>

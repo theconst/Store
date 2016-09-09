@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+    Document   : error
+    Created on : Jan 3, 2016, 5:18:59 PM
+    Author     : Kostiantyn Kovalchuk
+    Comment    : Page that is shown in case of error
+-->
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+
+    <jsp:directive.page contentType="text/html" pageEncoding="UTF-8"/>
+
+    <jsp:element name="errorpage">
+        <jsp:body>
+            <html>
+              <body>
+                <h1>Oops... An error occurred. We are trying to fix it</h1>
+                Try to go <a href = "index.jspx" >home</a>
+              </body>
+            </html>
+            <jsp:include page = "jspf/footer.jspf" />
+        </jsp:body>
+    </jsp:element>
+
+</jsp:root>

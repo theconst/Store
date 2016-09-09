@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+    Document   : adminpanel
+    Created on : Jan 10, 2016, 6:57:44 PM
+    Author     : Kostiantyn Kovalchuk
+    Comment    : Page that is viewed to the administrator
+-->
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+
+    <jsp:directive.page contentType="text/html" pageEncoding="UTF-8"/>
+
+    <jsp:element name="text">
+        <jsp:body>
+            <html>
+              <body>
+                <jsp:include page = "/jspf/adminheader.jspf" />
+                <h1>Administrator panel</h1>
+                <form action= "viewcustomerlist" method = "POST">
+                  <input type = "submit" value ="View all customers!" /> <br />
+                </form>
+                <form action = "viewblacklist" method = "POST">
+                  <input type = "submit" value ="View blacklisted customers" /> <br />
+                </form>
+                <jsp:include page = "/jspf/footer.jspf" />
+              </body>
+            </html>
+        </jsp:body>
+    </jsp:element>
+
+</jsp:root>
